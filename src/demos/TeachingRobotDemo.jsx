@@ -610,7 +610,7 @@ export default function TeachingRobotDemo() {
       <aside className="zoro-demo__sidebar">
         <div className="zoro-demo__brand">
           <img
-    src="/logo.png"
+    src={`${import.meta.env.BASE_URL}logo.png`}
     alt="ZORO"
     className="zoro-demo__brand-photo"
   />

@@ -853,7 +853,7 @@ const resetAssessment = () => {
       <aside className="lms-demo__sidebar">
         <div className="lms-demo__brand">
           <img
-            src="/logo.png"
+            src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Se-ah LMS"
             className="lms-demo__avatar"
           />
@@ -866,7 +866,7 @@ const resetAssessment = () => {
 
         <div className="lms-demo__profile">
           <img
-            src="/haroon-profile.jpeg"
+            src={`${import.meta.env.BASE_URL}haroon-profile.jpeg`}
             alt=""
             className="lms-demo__profile-avatar"
           />

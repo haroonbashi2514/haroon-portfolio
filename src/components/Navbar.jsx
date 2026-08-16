@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="nav__inner">
         <div className="nav__brand">
   <img
-    src="/haroon-profile.jpeg"
+    src={`${import.meta.env.BASE_URL}haroon-profile.jpeg`}
     alt="Haroon Al Rashith"
     className="nav__brand-avatar"
   />
