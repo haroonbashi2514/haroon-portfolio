@@ -1,0 +1,402 @@
+/* App-level styles — kept minimal; the design system lives in index.css */
+
+/* =========================================================
+   RAG PORTFOLIO DEMO
+   ========================================================= */
+
+.rag {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  height: 100%;
+  min-height: 480px;
+  background: #0b0b0b;
+  color: #f3f3f3;
+}
+
+/* ---------- Sidebar ---------- */
+
+.rag__sidebar {
+  min-width: 0;
+  padding: 24px 18px;
+  border-right: 1px solid #252525;
+  background: #101010;
+  overflow-y: auto;
+}
+
+.rag__sidebar-label,
+.rag__suggestion-label {
+  margin: 0 0 12px;
+  color: #6f6f6f;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rag__kb {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #252525;
+  border-radius: 8px;
+  background: #141414;
+}
+
+.rag__kb-icon {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 40px;
+  border: 1px solid #303030;
+  border-radius: 4px;
+  background:
+    linear-gradient(#2d8d69, #2d8d69) 7px 11px / 20px 2px no-repeat,
+    linear-gradient(#2d8d69, #2d8d69) 7px 16px / 14px 2px no-repeat,
+    #181818;
+}
+
+.rag__kb-name {
+  color: #ececec;
+  font-size: 13px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.rag__kb-meta {
+  margin-top: 4px;
+  color: #6f6f6f;
+  font-size: 11px;
+}
+
+.rag__sidebar-section {
+  margin-top: 26px;
+}
+
+.rag__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rag__stat strong {
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.rag__stat span {
+  color: #777;
+  font-size: 11px;
+}
+
+.rag__link-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #bdbdbd;
+  font-size: 13px;
+}
+
+.rag__suggestions {
+  margin-top: 26px;
+}
+
+.rag__suggestion {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 9px 10px;
+  border: 1px solid #292929;
+  border-radius: 7px;
+  background: transparent;
+  color: #9b9b9b;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.rag__suggestion:hover:not(:disabled) {
+  border-color: #3a3a3a;
+  background: #171717;
+  color: #ededed;
+}
+
+.rag__suggestion:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* ---------- Chat area ---------- */
+
+.rag__chat {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  min-width: 0;
+  min-height: 0;
+  background: #0b0b0b;
+}
+
+.rag__chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.rag__chat-title {
+  margin: 0;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.rag__chat-subtitle {
+  margin: 4px 0 0;
+  color: #777;
+  font-size: 11px;
+}
+
+.rag__chat-ready {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border: 1px solid #21432f;
+  border-radius: 999px;
+  background: #0d1b14;
+  color: #69b78f;
+  font-size: 10px;
+}
+
+.rag__messages {
+  min-height: 0;
+  padding: 22px 24px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.rag__empty {
+  max-width: 520px;
+  margin: 34px 0;
+  padding: 16px;
+  border: 1px solid #242424;
+  border-radius: 9px;
+  background: #111111;
+}
+
+.rag__empty-title {
+  color: #e8e8e8;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.rag__empty-text {
+  margin: 7px 0 0;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ---------- Messages ---------- */
+
+.rag__msg {
+  max-width: min(760px, 85%);
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #252525;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.rag__msg--user {
+  margin-left: auto;
+  border-color: #214d39;
+  background: #0d1914;
+  color: #e6e6e6;
+}
+
+.rag__msg--bot {
+  background: #111111;
+  color: #bdbdbd;
+}
+
+.rag__source {
+  display: block;
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid #242424;
+  color: #6f6f6f;
+  font-size: 10px;
+}
+
+/* ---------- Status ---------- */
+
+.rag__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px 10px;
+  color: #737373;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+}
+
+.rag__status-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: #55a77b;
+}
+
+/* ---------- Input ---------- */
+
+.rag__input {
+  display: flex;
+  gap: 10px;
+  padding: 14px 24px;
+  border-top: 1px solid #1f1f1f;
+}
+
+.rag__input input {
+  min-width: 0;
+  flex: 1;
+  height: 42px;
+  padding: 0 13px;
+  border: 1px solid #2b2b2b;
+  border-radius: 7px;
+  outline: none;
+  background: #111111;
+  color: #ededed;
+  font: inherit;
+  font-size: 12px;
+}
+
+.rag__input input::placeholder {
+  color: #5f5f5f;
+}
+
+.rag__input input:focus {
+  border-color: #3c3c3c;
+}
+
+.rag__input button {
+  flex: 0 0 auto;
+  height: 42px;
+  padding: 0 18px;
+  border: 1px solid #397956;
+  border-radius: 7px;
+  background: #397956;
+  color: #08120d;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rag__input button:hover:not(:disabled) {
+  background: #478e67;
+}
+
+.rag__input button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  .rag {
+    grid-template-columns: 1fr;
+  }
+
+  .rag__sidebar {
+    display: none;
+  }
+
+  .rag__chat-header {
+    padding: 16px;
+  }
+
+  .rag__messages {
+    padding: 18px 16px;
+  }
+
+  .rag__input {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .rag__chat-header {
+    align-items: flex-start;
+  }
+
+  .rag__chat-ready {
+    display: none;
+  }
+
+  .rag__msg {
+    max-width: 92%;
+  }
+}
+
+/* =========================================================
+   DARK SCROLLBARS
+   ========================================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a3a transparent;
+}
+
+/* Chrome / Edge / Safari */
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+  background-clip: content-box;
+}
+
+/* =========================================================
+   DEMO WINDOW SURFACE
+   ========================================================= */
+
+.demowindow {
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.demowindow__bar {
+  background: #151515;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.demowindow__body {
+  background: #101010;
+}
